@@ -1,0 +1,23 @@
+---
+- hosts: web
+  gather_facts: false
+  tasks:
+       - name: vgcreate
+         lvg: 
+               vg: vgdata
+               pvs: /dev/sdb
+       - name: lvcreate
+         lvol:
+               lv: lvdata
+               vg: vgdata
+               size: 1500M
+       - name: create file system
+         filesystem:
+               fstype: ext4
+               dev: /dev/mapper/vgdata-lvdata
+       - name: Mount file system
+         mount:
+               name: /new
+               src: /dev/mapper/vgdata-lvdata
+               fstype: ext4 
+               state: mounted

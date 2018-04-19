@@ -1,0 +1,8 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+   - username: eishaga
+  tasks:
+   - name: Delete eishaga user
+     file: dest=/root/{{ username}} state=absent

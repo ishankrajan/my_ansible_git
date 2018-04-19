@@ -1,0 +1,8 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+   - app_name: apache2
+  tasks:
+   - name: install apache
+     apt: name={{ app_name }} state=present

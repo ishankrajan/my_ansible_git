@@ -1,0 +1,7 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+   - app_name: yum
+  roles:
+   - install

@@ -1,0 +1,7 @@
+---
+- hosts: web
+  vars:
+   - username: eishaga
+  tasks:
+   - name: Delete eishaga user
+     file: dest=/root/{{ username}} state=directory
