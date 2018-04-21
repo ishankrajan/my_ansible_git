@@ -1,0 +1,10 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+   - app_name: yum
+  tasks:
+   - name: Run the script
+     script: /root/ishank_ansible/script.sh
+   - name: Copy the output file
+     fetch: src=/root/output.txt dest=/root/ishank_ansible/ flat=yes
