@@ -1,0 +1,14 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+   - app_name: yum
+  tasks:
+   - name: copy script from local to remote machine
+     copy: src=/root/ishank_ansible/script.sh dest=/root
+   - name: scheduling the script in crontab
+     cron:
+         name: "to run the script"
+         minute: "25"
+         hour: "11"
+         job: "/root/script.sh"
