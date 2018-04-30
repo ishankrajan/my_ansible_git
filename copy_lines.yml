@@ -1,0 +1,10 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+  - var: "{{ lookup('file','/root/ishank_ansible/hosts') }}"
+  tasks:
+  - name: copy text in remote file
+    lineinfile:
+     path: /root/change.txt
+     line: "{{ var }}"
