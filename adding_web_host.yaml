@@ -1,0 +1,6 @@
+- name: adding host playbook
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: add host to ansible host file
+    shell: 'sed -i "s|\[web\]|\[web\]\n{{ variable_hostname }} ansible_ssh_hosts={{ variable_1 }}|g" /root/ishank_ansible/hosts'
